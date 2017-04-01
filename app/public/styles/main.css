@@ -1,0 +1,151 @@
+/* Generic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+}
+
+html, body {
+  background-color: #eee;
+}
+
+.container {
+  padding-top: 20px;
+}
+
+/* Nav Bar */
+nav {
+  background-color: #0078d7;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;  
+}
+
+nav span {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.nav-btn-container {
+  float: right;
+}
+
+.nav-btn-container button {
+  background-color: transparent;
+  border: 1px solid #fff;  
+  padding: 5px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: 0.25s ease;
+}
+
+.nav-btn-container button:hover {
+  background-color: #106ebe;  
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 940px;
+  margin: 0 auto;
+}
+
+thead {
+  background-color: transparent;
+  color: #333;
+}
+
+tbody {
+  background-color: #fff;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+caption {
+  font-size: 1.5rem;
+  text-align: left;
+  padding: 10px;  
+}
+
+th {
+  text-align: left;
+  font-size: 1.2rem;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: normal;
+  color: #666;
+}
+
+.location {
+  max-width: 188px;
+}
+
+.description {
+ max-width: 470px;
+}
+
+.creator {
+  max-width: 235px;
+}
+
+.url {
+  padding: 0;
+  max-width: 47px;
+  text-align: center;
+}
+
+.title {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #999;
+}
+
+/* Shadows */
+.bottom-shadow {
+  box-shadow: 0 5px 5px -2px rgba(16,16,16,0.5);
+}
+
+.top-shadow {
+  box-shadow: 0 -5px 5px -2px rgba(16,16,16,0.5);
+}
+
+.left-shadow {
+  box-shadow: -5px 0 5px -2px rgba(16,16,16,0.5);
+}
+
+.right-shadow {
+  box-shadow: 5px 0 5px -2px rgba(16,16,16,0.5);
+}
+
+.bottom-inner-shadow {
+  box-shadow: inset 0 -5px 5px -2px rgba(16,16,16,0.5);
+}
+
+.top-inner-shadow {
+  box-shadow: inset 0 5px 5px -2px rgba(16,16,16,0.5);
+}
+
+.left-inner-shadow {
+  box-shadow: inset 5px 0 5px -2px rgba(16,16,16,0.5);
+}
+
+.right-inner-shadow {
+  box-shadow: inset -5px 0 5px -2px rgba(16,16,16,0.5);
+}
+
