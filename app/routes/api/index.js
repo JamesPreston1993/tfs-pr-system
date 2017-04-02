@@ -27,9 +27,12 @@ router.get('/pullrequests/:instanceKey', (req, res, next) => {
                 'Authorization': 'Basic ' + new Buffer(':' + instance.pat).toString('base64')
             }
         }, (err, response, body) => {
+            console.log(response);
             if (err) {
                 return res.send(500, 'The request failed due to an internal error: ' + err);
-            } else {
+            } else if (!body) {
+                return res.send(400, 'The response was empty, please ensure your TFS PATs and URLs are valid');
+            } else {                
                 return res.send(200, formatData(instance, JSON.parse(body)));
             }            
         });
