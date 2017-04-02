@@ -29,12 +29,6 @@ export default class Table extends React.Component {
         return (
             <table>
                 <caption>{this.props.name}</caption>
-                <colgroup>
-                    <col width="20%"/>
-                    <col width="50%"/>
-                    <col width="25%"/>
-                    <col width="5%"/>
-                </colgroup>
                 <thead>
                     <tr>
                         <th className="location">Location</th>
