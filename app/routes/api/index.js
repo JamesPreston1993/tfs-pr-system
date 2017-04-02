@@ -18,7 +18,7 @@ router.get('/pullrequests/:instanceKey', (req, res, next) => {
             }
         }
         if(!found) {
-            return res.send(400, 'The specified instance does not exist');
+            return res.send(404, 'The specified instance does not exist.');
         }
         
         request({
@@ -27,14 +27,27 @@ router.get('/pullrequests/:instanceKey', (req, res, next) => {
                 'Authorization': 'Basic ' + new Buffer(':' + instance.pat).toString('base64')
             }
         }, (err, response, body) => {
-            console.log(response);
             if (err) {
                 return res.send(500, 'The request failed due to an internal error: ' + err);
-            } else if (!body) {
-                return res.send(400, 'The response was empty, please ensure your TFS PATs and URLs are valid');
-            } else {                
-                return res.send(200, formatData(instance, JSON.parse(body)));
-            }            
+            } else {
+                switch(response.statusCode) {
+                    case 200:
+                        return res.send(200, formatData(instance, JSON.parse(body)));
+                        break;
+                    case 401:
+                        return res.send(401, 'You do no have authorization to access the requested URL.');
+                        break;
+                    case 403:
+                        return res.send(403, 'The PAT in use does not allow access to Pull Requests. Please create a new one with the relevant permissions.');
+                        break;
+                    case 404:
+                        return res.send(404, 'The requested URL is not valid.');
+                        break;
+                    default:
+                        res.send(500, 'The request failed due to an internal error.');
+                        break;
+                }
+            }
         });
     } else {
         return res.send(400, 'The request does not contain an instance key');
