@@ -9,6 +9,7 @@ export default class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = { instances: [{
+                key: 'empty_instance',
                 name: '',
                 pullRequests: []
             }]
