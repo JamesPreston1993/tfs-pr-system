@@ -27,12 +27,12 @@ The settings file adheres to the following format:
 ````
 {
     appName: 'My App',              // Name displayed in navigation bar
-    instances: [                    // List of TFS instances
+    instances: [{                   // List of TFS instances
         key: 'tfs1',                // Identifying key used for API requests
         name: 'TFS 1',              // Display name of the instance      
         url: 'http://tfs1.com',     // Root URL for instance
-        pat: '123456',              // Personal Access Token
-    ]    
+        pat: '123456'               // Personal Access Token
+    }]    
 }
 ````
 
