@@ -6,7 +6,7 @@ The system presents a table of PRs for each instance, displaying information
 about the PR, as well as providing a link to the PR itself.
 
 TFS Configuration
-=================
+-----------------
 The system requires a personal access token to authenticate requests to
 the instance. To create a personal access token:
 * Go to Security settings on your TFS instance
@@ -19,7 +19,7 @@ the instance. To create a personal access token:
 NOTE: Personal Access Tokens can be revoked at any stage.
 
 App Configuration
-=================
+-----------------
 First, the `settings.js` file in the config folder must be populated
 with the relevant data for the TFS instance(s) you wish to query.
 
@@ -44,7 +44,7 @@ npm start
 ````
 
 Technology Used
-===============
+---------------
 * Node.js
 * Express
 * Webpack
