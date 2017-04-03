@@ -1,6 +1,6 @@
 import express from 'express';
 import request from 'request';
-import url from 'url';
+import urljoin from 'url-join';
 import settings from '../../config/settings';
 import dateFormat from 'dateformat';
 
@@ -22,7 +22,7 @@ router.get('/pullrequests/:instanceKey', (req, res, next) => {
         }
         
         request({
-            url: url.resolve(instance.url, '/defaultcollection/_apis/git/pullRequests?api-version=3.0&status=active'),
+            url: urljoin(instance.url, '/defaultcollection/_apis/git/pullRequests?api-version=3.0&status=active'),
             headers: {            
                 'Authorization': 'Basic ' + new Buffer(':' + instance.pat).toString('base64')
             }
@@ -66,11 +66,12 @@ function formatData(instance, data) {
             created: dateFormat(pr.creationDate, 'dd/mm/yy HH:MM:ss'),
             creator: pr.createdBy.displayName,
             title: pr.title,
-            url: url.resolve(instance.url, encodeURIComponent(pr.repository.project.name)
-                            + '/_git/'
-                            + encodeURIComponent(pr.repository.name)
-                            + '/pullrequest/'
-                            + pr.pullRequestId)
+            url: urljoin(instance.url, , 'DefaultCollection',
+                            encodeURIComponent(pr.repository.project.name),
+                            '_git',
+                            encodeURIComponent(pr.repository.name),
+                            'pullrequest',
+                            pr.pullRequestId)
         };
         formattedData.push(formattedPr);
     }
