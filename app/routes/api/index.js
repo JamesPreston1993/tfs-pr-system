@@ -66,7 +66,7 @@ function formatData(instance, data) {
             created: dateFormat(pr.creationDate, 'dd/mm/yy HH:MM:ss'),
             creator: pr.createdBy.displayName,
             title: pr.title,
-            url: urljoin(instance.url, , 'DefaultCollection',
+            url: urljoin(instance.url, 'DefaultCollection',
                             encodeURIComponent(pr.repository.project.name),
                             '_git',
                             encodeURIComponent(pr.repository.name),
